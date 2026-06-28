@@ -2,5 +2,5 @@
 
 =type this command when running in the terminal=
 
-python [SCRIPT.PY] [FOLDER LOCATION OF DATASET]
+python [SCRIPT.py] [FOLDER LOCATION OF DATASET ex. (../Dataset)]
 
