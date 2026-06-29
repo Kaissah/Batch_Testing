@@ -11,13 +11,14 @@ import cv2
 
 from Puspin_v1 import detect
 
+IMG_EXTS = {".png", ".jpg", ".jpeg", ".bmp", ".tiff"}
 
 def find_images(root_folder):
     """Walk root_folder recursively, yield (full_path, category, filename)."""
     for dirpath, _, filenames in os.walk(root_folder):
         for fname in filenames:
-            
-            if fname.lower().endswith(".png"):
+            ext = os.path.splitext(fname)[1].lower()
+            if ext in IMG_EXTS:
                 full_path = os.path.join(dirpath, fname)
                 category = os.path.basename(dirpath)
                 yield full_path, category, fname
@@ -58,8 +59,8 @@ def run_batch(dataset_folder, output_folder):
                 "category": category,
                 "full_path": full_path,
                 "risk_level": result.risk_level,
-                "redness_score": result.redness_score,
-                "bald_area_ratio": result.bald_area_ratio,
+                "redness_score": f"{result.redness_score * 100:.2f}%",
+                "bald_area_ratio": f"{result.bald_area_ratio * 100:.2f}%",
                 "lesion_circularity": result.lesion_circularity,
                 "affected_pixel_count": result.affected_pixel_count,
                 "stat_base_redness": result.metrics.get("stat_base_redness"),
