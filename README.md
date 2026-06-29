@@ -12,3 +12,5 @@ python validate_accuracy.py  [FOLDER LOCATION OF DATASET ex. (../Dataset)]
 
 3. Manual_review.py
 python Manual_review.py "batch_results\\overlays"
+
+NOTES: delete the manual_review_log.csv when re-doing the manual review
