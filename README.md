@@ -1,4 +1,5 @@
 ===========RUNNING THE SCRIPT===========
+
 run scripts in chronological order
 
 =type this command when running in the terminal=
